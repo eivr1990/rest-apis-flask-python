@@ -4,18 +4,20 @@ To install and cofigure Nginx on your server, follow the following instructions.
 First, you need to update your server by running
 
 ```bash
-sudo apt-get update
+sudo yum update
 ```
 
 To install Nginx, run
 
 ```bash
-sudo apt-get install nginx 
+sudo yum install nginx 
 ```
 
 Allow Nginx access through firewall (otherwise incoming requests will be blocked by the firewall)
 
 ```bash
+sudo yum install -y epel-release
+sudo yum install -y ufw
 sudo ufw enable
 sudo ufw allow 'Nginx HTTP'
 ```

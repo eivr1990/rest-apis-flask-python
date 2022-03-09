@@ -19,6 +19,25 @@ Allow Nginx access through firewall (otherwise incoming requests will be blocked
 sudo yum install -y epel-release
 sudo yum install -y ufw
 sudo ufw enable
+
+vi /etc/ufw/applications.d/nginx.ini
+
+[Nginx HTTP]
+title=Web Server 
+description=Enable NGINX HTTP traffic
+ports=80/tcp
+
+[Nginx HTTPS] \
+title=Web Server (HTTPS) \
+description=Enable NGINX HTTPS traffic
+ports=443/tcp
+
+[Nginx Full]
+title=Web Server (HTTP,HTTPS)
+description=Enable NGINX HTTP and HTTPS traffic
+ports=80,443/tcp
+
+sudo ufw app update nginx
 sudo ufw allow 'Nginx HTTP'
 ```
 
